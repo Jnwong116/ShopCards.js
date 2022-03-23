@@ -209,6 +209,7 @@ shopCards.prototype = {
     // Logs data
     logData: function() {
         log(this);
+        log(this.cart);
     },
 
     // Returns a flexbox element with all the item cards displayed in a grid
