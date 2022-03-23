@@ -38,3 +38,12 @@ body {
     padding-left: 10px;
     display: block;
 }
+
+table, td, th {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+td, th {
+	min-width: 200px;
+}

@@ -7,6 +7,7 @@ function shopCards(data) {
     this.items = data.items;
 
     this.cartStatus = '';
+    this.itemGrid = '';
 }
 
 
@@ -32,7 +33,7 @@ function _calculateDiscount(item) {
 
 function _getTotalItems(cart) {
     let total = 0;
-    
+
     for (let i = 0; i < cart.length; i++) {
         total += parseInt(cart[i].quantity);
     }
@@ -174,6 +175,8 @@ function _createItemGrid(items, statusColor, quickView, shopCards) {
         grid.appendChild(_createItemCard(item, statusColor, quickView, shopCards));
     })
 
+    shopCards.itemGrid = grid;
+
     return grid;
 }
 
@@ -205,9 +208,7 @@ shopCards.prototype = {
 
     // Logs data
     logData: function() {
-        log(this.cart);
-        log(this.items);
-        log(this.statusColor);
+        log(this);
     },
 
     // Returns a flexbox element with all the item cards displayed in a grid
@@ -222,4 +223,17 @@ shopCards.prototype = {
         this.cartStatus.innerText = _getTotalItems(this.cart);
         return cart;
     },
+
+    // Updates item grid with new items 
+    updateStore: function() {
+
+        // Removes all old item cards
+        while(this.itemGrid.childNodes.length !== 0) {
+            this.itemGrid.removeChild(this.itemGrid.childNodes[0]);
+        }
+
+        this.items.map((item) => {
+            this.itemGrid.appendChild(_createItemCard(item, this.statusColor, this.quickView, this));
+        })
+    }
 }

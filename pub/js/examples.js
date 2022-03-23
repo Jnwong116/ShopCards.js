@@ -36,7 +36,7 @@ const jeans = {
     link: "/"
 }
 
-const ItemList = [soccerJersey, gpu, airpods, jeans];
+let ItemList = [soccerJersey, gpu, airpods, jeans];
 
 const shopData = {
     statusColor: "red",
@@ -45,9 +45,66 @@ const shopData = {
 }
 
 const shop = new shopCards(shopData);
-shop.logData();
+
 
 const itemGrid = document.getElementById('shopGrid');
 itemGrid.appendChild(shop.displayItems());
 
-document.body.appendChild(shop.displayCart());
+const cartIcon = document.getElementById('cartIcon');
+
+function displayCartIcon() {
+    cartIcon.appendChild(shop.displayCart())
+}
+
+function logData() {
+    shop.logData();
+}
+
+// Table stuff
+const addItemForm = document.querySelector('#addItem')
+const itemTable = document.querySelector('#itemList')
+
+addItemForm.addEventListener('submit', addItem);
+
+for (let i = 0; i < ItemList.length; i++) {
+    addItemToTable(ItemList[i]);
+}
+
+function addItem(e) {
+	e.preventDefault();
+
+	const newItem = {
+        name: addItemForm.elements[0].value,
+        price: addItemForm.elements[1].value,
+        discount: addItemForm.elements[2].value,
+        img: "images/items/bayern.jpg",
+        link: "/"
+    }
+
+	ItemList.push(newItem);
+
+	addItemToTable(newItem);
+
+    shop.updateStore();
+}
+
+function addItemToTable(item) {
+    let length = itemTable.rows.length;
+	let row = itemTable.insertRow(length);
+
+	let itemName = row.insertCell(0);
+	let itemPrice = row.insertCell(1);
+	let itemDiscount = row.insertCell(2);
+
+	itemName.innerHTML = item.name;
+	itemPrice.innerHTML = item.price;
+	itemDiscount.innerHTML = item.discount;
+}
+
+function deleteItem() {
+    ItemList.splice(-1, 1);
+
+    itemTable.deleteRow(itemTable.rows.length - 1);
+
+    shop.updateStore();
+}
