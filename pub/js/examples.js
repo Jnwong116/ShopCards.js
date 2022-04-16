@@ -4,8 +4,11 @@ const soccerJersey = {
     price: 45.0,
     discount: "",
     img: "images/items/bayern.jpg",
-    sizes: ["XS, S, M, LG"],
-    link: "/"
+    sizes: ["XS", "S", "M", "LG"],
+    link: "/",
+    description: "This is a soccer jersey from FC Bayern",
+    numReviews: 250,
+    rating: 4.5
 }
 
 const gpu = {
@@ -14,7 +17,10 @@ const gpu = {
     price: 500.0,
     discount: "",
     img: "images/items/3070.png",
-    link: "/"
+    link: "/",
+    description: "This is a RTX 3070 gpu",
+    numReviews: 1002,
+    rating: 3
 }
 
 const airpods = {
@@ -23,7 +29,10 @@ const airpods = {
     price: 100.0,
     discount: "20%",
     img: "images/items/airpods.webp",
-    link: "/"
+    link: "/",
+    description: "These air airpods pro, never used",
+    numReviews: 50,
+    rating: 3.5
 }
 
 const jeans = {
@@ -32,7 +41,7 @@ const jeans = {
     price: 50.0,
     discount: "10%",
     img: "images/items/jeans.webp",
-    sizes: ["XS, S, M, LG, XL"],
+    sizes: ["XS", "S", "M", "LG"],
     link: "/"
 }
 
@@ -51,14 +60,14 @@ const itemGrid = document.getElementById('shopGrid');
 itemGrid.appendChild(shop.displayItems());
 
 const cartIcon = document.getElementById('cartIcon');
-
-function displayCartIcon() {
-    cartIcon.appendChild(shop.displayCart())
-}
+cartIcon.appendChild(shop.displayCart())
 
 function logData() {
     shop.logData();
 }
+
+const card = shop.displayItem(ItemList[2]);
+document.body.appendChild(card);
 
 // Table stuff
 const addItemForm = document.querySelector('#addItem')
