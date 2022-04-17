@@ -12,5 +12,5 @@ shopCards.css - This is the main CSS file containing the styling for all the obj
 
 Add the following code snippet into the head tag of your HTML file to integrate ShopCards.js into your app.
 
-"<link rel="stylesheet" type="text/css" href="shopCards.css">"
+<"link rel="stylesheet" type="text/css" href="shopCards.css">
 <script defer type="text/javascript" src="shopCards.js"></script>
