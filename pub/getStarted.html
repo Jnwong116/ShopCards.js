@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="all.min.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="getStarted.css">
+
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <a href="main.html" class="logo">ShopCards.js</a>
+                    <div class="navbarButtons">
+                        <ul class="navbarLinks">
+                            <li class="navItem">
+                                <a class="navLink" href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="navItem">
+                                <a class="navLink" href="/documentation">
+                                    Documentation
+                                </a>
+                            </li>
+                            <li class="navItem active">
+                                <a class="navLink" href="/getStarted">
+                                    Getting Started
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="buttonWrapper">
+                            <div >
+                                <a class="downloadBtn" href="assets/shopCards.zip">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="intro">
+            <div class="introContainer">
+                <div class="introContent">
+                    <div class="introTitle">
+                        ShopCards.js
+                    </div>
+                    <div class="introTagline">
+                        Building a shop has never been easier
+                    </div>
+                </div>
+            </div>
+            <div class="introDesc">
+                ShopCards.js is a JavaScript library that makes building and maintaining a shop easy for anyone to do. You can get a clean looking shop up and running in no time.
+            </div>
+            <svg class="introArrows">
+                <path d="M0 0 L30 32 L60 0"></path>
+                <path d="M0 20 L30 52 L60 20"></path>
+            </svg>
+        </section>
+        <section class="getStarted">
+            <div class="getStartedTitle">Getting Started</div>
+            <div class="getStartedContent">
+                <h1>Installation</h1>
+                <p>Install ShopCards.js by downloading the shopCards_library.zip folder. (You can do so by hitting the download now button). Make sure to extract all the files from the zip folder into the same directory as your HTML files.
+                    Once you extract the folder you should see 2 new files: 
+                    <ul>
+                        <li><strong>shopCards.js - </strong>This is the main JavaScript file containing the object definitions and functions used for the library.</li>
+                        <li><strong>shopCards.css - </strong>This is the main CSS file containing the styling for all the objects defined in shopCards.js</li>
+                    </ul>
+
+                    Make sure to move all the images for each item into a folder called images. This folder should be created in the same directory as your HTML files and 
+                    the newly extracted files.
+                </p>
+
+                <h1>Integration</h1>
+                <p>
+                    Add the following code snippet into the <i>head</i> tag of your HTML file to integrate ShopCards.js into your app.
+                </p>
+                <pre class="code">
+                    <code>
+                        <"link rel="stylesheet" type="text/css" href="shopCards.css">
+                        <"script defer type="text/javascript" src="shopCards.js"><"/script">
+                    </code>
+                </pre>
+                <h1>Usage</h1>
+                <p>
+                    To use ShopCards.js, you will need another JavaScript file. To use the library in that JavaScript file, you can copy this basic code snippet into your JavaScript
+                    file to get started. <i>Take special note of how the data must be configured. A more detailed explanation can be found on the documentation page.</i>
+                </p>
+                <pre class="code">
+                    <code>
+                        const airpods = {
+                            id: 2,
+                            name: "Airpods Pro",
+                            price: 100.0,
+                            discount: "20%",
+                            img: "images/items/airpods.webp",
+                            link: "/",
+                            description: "These are airpods pro, never used",
+                            numReviews: 50,
+                            rating: 3.5
+                        }
+
+                        let ItemList = [airpods];
+
+                        const shopData = {
+                            discountColor: "red",
+                            quickView: true,
+                            items: ItemList,
+                            checkoutLink: '/',
+                            ratingColor: "green",
+                            reviewColor: "green",
+                            addToCartColor: "#124cdf",
+                            cartNumberColor: "red"
+                        }
+
+                        const shop = new shopCards(shopData);
+                        const itemGrid = shop.displayItems();
+                        const cartIcon = shop.displayCart();
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="all.min.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="documentation.css">
+        <link rel="stylesheet" type="text/css" href="shopCards.css">
+        <script defer type="text/javascript" src="./js/shopCards.js"></script>
+        <script defer type="text/javascript" src="./js/examples.js"></script>
+
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <a href="main.html" class="logo">ShopCards.js</a>
+                    <div class="navbarButtons">
+                        <ul class="navbarLinks">
+                            <li class="navItem">
+                                <a class="navLink" href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="navItem active">
+                                <a class="navLink" href="/documentation">
+                                    Documentation
+                                </a>
+                            </li>
+                            <li class="navItem">
+                                <a class="navLink" href="/getStarted">
+                                    Getting Started
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="buttonWrapper">
+                            <div >
+                                <a class="downloadBtn" href="assets/shopCards.zip">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="intro">
+            <div class="introContainer">
+                <div class="introContent">
+                    <div class="introTitle">
+                        ShopCards.js
+                    </div>
+                    <div class="introTagline">
+                        Building a shop has never been easier
+                    </div>
+                </div>
+            </div>
+            <div class="introDesc">
+                ShopCards.js is a JavaScript library that makes building and maintaining a shop easy for anyone to do. You can get a clean looking shop up and running in no time.
+            </div>
+            <svg class="introArrows">
+                <path d="M0 0 L30 32 L60 0"></path>
+                <path d="M0 20 L30 52 L60 20"></path>
+            </svg>
+        </section>
+        <section class="documentation">
+            <div class="documentationTitle">API Documentation</div>
+            <div class="documentationContent">
+                <h1>Item Object</h1>
+                <p>
+                    ShopCards needs to receive an array of items for it to work. These items objects describe all aspects of the item you are trying to sell.
+                    It is important that you create your item objects in this format for the library to work. Each item object must have a value for each of these attributes listed below:
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String</td>
+                            <td>This value must be unique.</td>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td>String</td>
+                            <td>This should be the name of the item that you wish to display.</td>
+                        </tr>
+                        <tr>
+                            <td>price</td>
+                            <td>Number</td>
+                            <td>This should be the original price of the item.</td>
+                        </tr>
+                        <tr>
+                            <td>discount</td>
+                            <td>String</td>
+                            <td>This value is the discount (if any) applied on the item. It should be a percentage or if there is no discount, it should be the empty string "".</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>String</td>
+                            <td>This should be a string, with a path to the image you wish to use for the item.</td>
+                        </tr>
+                        <tr>
+                            <td>link</td>
+                            <td>String</td>
+                            <td>This should be the href location of the page you would like the user to be redirected to when clicking on the View More button or when clicking on the item card.</td>
+                        </tr>
+                        <tr>
+                            <td>description</td>
+                            <td>String</td>
+                            <td>This should be a descirption of the item you are selling.</td>
+                        </tr>
+                        <tr>
+                            <td>numReviews</td>
+                            <td>Number</td>
+                            <td>This should be the total number of reviews the item has received.</td>
+                        </tr>
+                        <tr>
+                            <td>rating</td>
+                            <td>Number</td>
+                            <td>This should be a number with the star rating the item has received. It can have a decimal of .5 to show half a star.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                    An example of an item object ShopCards expects is shown below.
+                </p>
+                <pre class="code">
+                    <code>
+                        const gpu = {
+                            id: 1,
+                            name: "RTX 3070",
+                            price: 500.0,
+                            discount: "",
+                            img: "images/items/3070.png",
+                            link: "/",
+                            description: "This is a RTX 3070 gpu",
+                            numReviews: 1002,
+                            rating: 3
+                        }
+                    </code>
+                </pre>
+                <p>
+                    If your item has a multiple sizes: then you can add a size attribute to the item to display the different sizes when the user is in quickView.
+                </p>
+                <pre class="code">
+                    <code>
+                        const soccerJersey = {
+                            id: 0,
+                            name: "Soccer Jersey",
+                            price: 45.0,
+                            discount: "",
+                            img: "images/items/bayern.jpg",
+                            sizes: ["XS", "S", "M", "LG"],
+                            link: "/",
+                            description: "This is a soccer jersey from FC Bayern",
+                            numReviews: 250,
+                            rating: 4.5
+                        }
+                    </code>
+                </pre>
+
+                <h1>Shop Cards</h1>
+                <p>
+                    A shopCards object will hold all the data of your shop, including the options you wish to include and any styling choices you wish to make.
+                    It also contains all the functions to create the various elements of the shop you may need. 
+                </p>
+
+                <h2>Shop Data Object</h2>
+                <p>
+                    This is the object you will need to pass into the shopCards constructor. It contains all the options and styling choices you wish to make.
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>discountColor</td>
+                            <td>String</td>
+                            <td>This is the background color of the bubble that will appear on item cards if there is a discount.</td>
+                        </tr>
+                        <tr>
+                            <td>quickView</td>
+                            <td>Boolean</td>
+                            <td>This should be set to true if you want to have quickView enabled. Otherwise set it to false.</td>
+                        </tr>
+                        <tr>
+                            <td>items</td>
+                            <td>Array</td>
+                            <td>This should be an array of the item objects as defined above.</td>
+                        </tr>
+                        <tr>
+                            <td>checkoutLink</td>
+                            <td>String</td>
+                            <td>This should be the location href of your checkout page you, so when users click on the checkout button in the cart overview they will be redirected to the proper place.</td>
+                        </tr>
+                        <tr>
+                            <td>ratingColor</td>
+                            <td>String</td>
+                            <td>This is the color you want the stars to be in the quickView.</td>
+                        </tr>
+                        <tr>
+                            <td>reviewColor</td>
+                            <td>String</td>
+                            <td>This is the color you want the number of reviews to be in the quickView.</td>
+                        </tr>
+                        <tr>
+                            <td>addToCartColor</td>
+                            <td>String</td>
+                            <td>This is the background color of the Add To Cart button. </td>
+                        </tr>
+                        <tr>
+                            <td>cartNumberColor</td>
+                            <td>String</td>
+                            <td>This is the background color of the bubble that appears next to the cart representing how many items are currently in the cart.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    An example (and default) version of the shopData object is shown below.
+                </p>
+
+                <pre class="code">
+                    <code>
+                        const shopData = {
+                            discountColor: "red",
+                            quickView: true,
+                            items: ItemList,
+                            checkoutLink: '/',
+                            ratingColor: "green",
+                            reviewColor: "green",
+                            addToCartColor: "#124cdf",
+                            cartNumberColor: "red"
+                        }
+                    </code>
+                </pre>
+
+                <h2>Constructor</h2>
+                <p>Create a shopCard object by calling the constructor</p>
+
+                <pre class="code">
+                    <code>
+                        const shop = new shopCards(shopData);
+                    </code>
+                </pre>
+
+                <h1>Functions</h1>
+                <p>
+                    After you create the shopCards object, you can call upon multiple functions to display and customize your shop as you see fit.
+                </p>
+
+                <h2>displayItems</h2>
+                <p>
+                    <ul>
+                        <li><strong>description - </strong>This will create the grid of item cards for you to display on your page.</li>
+                        <li><strong>return - </strong>It returns a flexbox element with all of the item cards displayed in a grid. You can then go ahead and add any custom styling you
+                        would like and then you will need to add it to your page.</li>
+                        <li><strong>examples: </strong></li>
+                    </ul>
+                </p>
+                <pre class="code">
+                    <code>
+                        const itemGrid = document.getElementById('shopGrid');
+                        const shopCardsItemGrid = shop.displayItems();
+                        // Add any styling or make changes to the element now
+                        itemGrid.appendChild(shopCardsItemGrid);
+                    </code>
+                </pre>
+
+                <h2>displayItem</h2>
+                <p>
+                    <ul>
+                        <li><strong>description - </strong>This will create a singular item card for you.</li>
+                        <li><strong>return - </strong>It returns the itemCard element You can then go ahead and add any custom styling you
+                        would like and then you will need to add it to your page.</li>
+                        <li><strong>arguments - </strong>It takes in an item object.</li>
+                        <li><strong>examples: </strong></li>
+                    </ul>
+                </p>
+                <pre class="code">
+                    <code>
+                        const card = shop.displayItem(ItemList[2]);
+                        // Add any styling to the card here
+                        document.body.appendChild(card);
+                    </code>
+                </pre>
+
+                <h2>displayCart</h2>
+                <p>
+                    <ul>
+                        <li><strong>description - </strong>This will create the cart object for you.</li>
+                        <li><strong>return - </strong>It returns the cart element with an id of shopCardsCart.</li>
+                        <li><strong>examples: </strong></li>
+                    </ul>
+                </p>
+                <pre class="code">
+                    <code>
+                        const cartIcon = document.getElementById('cartIcon');
+                        const shopCardsCart = shop.displayCart();
+                        // Add any styling to the card here
+                        cartIcon.appendChild(shopCardsCart);
+                    </code>
+                </pre>
+
+                <h2>updateStore</h2>
+                <p>
+                    <ul>
+                        <li><strong>description - </strong>This will update the store by if any changes are made to the itemList array passed into the ShopCards object.</li>
+                        <li><strong>return - </strong>It returns nothing</li>
+                        <li><strong>examples: </strong></li>
+                    </ul>
+                </p>
+                <pre class="code">
+                    <code>
+                        // Deleting an item from the store
+                        ItemList.splice(-1, 1);
+                        shop.updateStore();
+
+                        // Adding an item to the store
+                        ItemList.push(newItem);
+                        shop.updateStore();
+                    </code>
+                </pre>
+
+                <h2>displayFilters</h2>
+                <p>
+                    <ul>
+                        <li><strong>description - </strong>This will display the sort functionality at the top of your item grid. Allowing users to sort by price.</li>
+                        <li><strong>return - </strong>It returns the filter element which you can then style and add to your itemGrid.</li>
+                        <li><strong>examples: </strong></li>
+                    </ul>
+                </p>
+                <pre class="code">
+                    <code>
+                        const itemGrid = document.getElementById('shopGrid');
+                        itemGrid.appendChild(shop.displayItems());
+                        const filters = shop.displayFilters();
+                        itemGrid.insertBefore(filters, itemGrid.firstChild);
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </body>
+</html>

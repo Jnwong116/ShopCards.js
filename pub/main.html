@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="all.min.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="shopCards.css">
+        <script defer type="text/javascript" src="./js/shopCards.js"></script>
+        <script defer type="text/javascript" src="./js/main.js"></script>
+
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <a href="main.html" class="logo">ShopCards.js</a>
+                    <div class="navbarButtons">
+                        <ul class="navbarLinks">
+                            <li class="navItem active">
+                                <a class="navLink" href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="navItem">
+                                <a class="navLink" href="/documentation">
+                                    Documentation
+                                </a>
+                            </li>
+                            <li class="navItem">
+                                <a class="navLink" href="/getStarted">
+                                    Getting Started
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="buttonWrapper">
+                            <div >
+                                <a class="downloadBtn" href="assets/ShopCards.js.zip">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="intro">
+            <div class="introContainer">
+                <div class="introContent">
+                    <div class="introTitle">
+                        ShopCards.js
+                    </div>
+                    <div class="introTagline">
+                        Building a shop has never been easier
+                    </div>
+                </div>
+            </div>
+            <div class="introDesc">
+                ShopCards.js is a JavaScript library that makes building and maintaining a shop easy for anyone to do. You can get a clean looking shop up and running in no time.
+            </div>
+            <svg class="introArrows">
+                <path d="M0 0 L30 32 L60 0"></path>
+                <path d="M0 20 L30 52 L60 20"></path>
+            </svg>
+        </section>
+        <section class="shop">
+            <div class="shopTitle">For Any Kind of Shop</div>
+            <div class="shopDesc">Use shopCards to create your brand new shop easily. Try interacting with the shop below to see everything shopCards can provide you!</div>
+            <pre class="code">
+                <code>
+                    let ItemList = [soccerJersey, gpu, airpods, jeans];
+
+                    const shopData = {
+                        discountColor: "red",
+                        quickView: true,
+                        items: ItemList,
+                        checkoutLink: '/',
+                        ratingColor: "green",
+                        reviewColor: "green",
+                        addToCartColor: "#124cdf",
+                        cartNumberColor: "red"
+                    }
+
+                    const shop = new shopCards(shopData);
+
+
+                    const itemGrid = document.getElementById('shopGrid');
+                    itemGrid.appendChild(shop.displayItems());
+
+                    const cartIcon = document.getElementById('cartIcon');
+                    cartIcon.appendChild(shop.displayCart())
+
+                    const filters = shop.displayFilters();
+                    itemGrid.insertBefore(filters, itemGrid.firstChild);
+                </code>
+            </pre>
+            
+            
+            
+            <h2 id="cartIcon"></h2>
+            <section className='mainSection'>
+                <div class="wrapper">
+                    <div class="flexWrapper">
+                        <!-- <aside class="shopFilters">
+                            <div class="filters" id="shopFilters">
+                            </div>
+                        </aside> -->
+                        <main class="shopGrid" id="shopGrid"></main>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+    </body>
+</html>

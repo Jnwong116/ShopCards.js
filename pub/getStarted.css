@@ -1,0 +1,18 @@
+.getStarted {
+    background-color: #f8f9fa;
+    padding: 60px 60px 10px 60px;
+}
+
+.getStartedTitle {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.getStartedContent {
+    margin: 40px 100px;
+}
+
+h1 {
+    border-bottom: 2px solid #783094;
+}

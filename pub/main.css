@@ -1,0 +1,313 @@
+*, :after, ::before {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 100px;
+    border: none;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    top: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container {
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.logo {
+    margin-right: 0;
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    
+}
+
+.navbarButtons {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-basis: auto;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbarLinks {
+    flex-direction: row;
+    margin-left: auto;
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 0;
+}
+
+.navItem {
+    margin-right: 30px;
+    position: relative;
+}
+
+.navLink {
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 500;
+    line-height: 100px;
+    color: #000000;
+    padding: 0;
+    position: relative;
+    display: block;
+    transition: 0.3s ease-in-out;
+}
+
+.navLink::before {
+    position: absolute;
+    left: 0;
+    bottom: 35px;
+    content: '';
+    height: 2px;
+    background-color: #303030;
+    transition: width 300ms linear;
+}
+
+.navbarLinks>li.active>a:before {
+    width: 50%;
+}
+
+.navLink:hover::before {
+    position: absolute;
+    left: 0;
+    bottom: 35px;
+    content: '';
+    height: 2px;
+    background-color: #303030;
+    transition: width 300ms linear;
+    width: 50%;
+}
+
+.buttonWrapper {
+    padding-left: 35px;
+}
+
+.downloadBtn {
+    width: auto;
+    height: 50px;
+    padding: 0 17px;
+    cursor: pointer;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 5px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: inherit;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid black;
+    position: relative;
+    text-align: center;
+    line-height: 49px;
+    overflow: hidden;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.downloadBtn:hover {
+    background-color: #ff7101;
+    border-color: #ff7101;
+    color: #ffffff;
+}
+
+.intro {
+    padding-top: 200px;
+    padding-bottom: 300px;
+    overflow: visible;
+    background-position: left center;
+    position: relative;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.introContainer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.introContent {
+    margin: 30px;
+}
+
+.introTitle {
+    font-size: 120px;
+    font-weight: bold;
+}
+
+.introTagline {
+    font-size: 36px;
+    font-weight: 600;
+    color: white;
+}
+
+.introDesc {
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 60%;
+}
+
+.introArrows {
+    width: 60px;
+    height: 72px;
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    bottom: 20px;
+    overflow: hidden;
+}
+
+.introArrows path {
+    stroke: black;
+    fill: transparent;
+    stroke-width: 1px;
+    animation: arrow 2s infinite;
+    -webkit-animation: arrow 2s infinite;
+}
+
+.mainSection {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: block;
+}
+
+.wrapper {
+    max-width: 960px;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.flexWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.shopGrid {
+    flex: 0 0 75%;
+    max-width: 75%;
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: block;
+}
+
+.shop {
+    padding: 80px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+.shopTitle {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: left;
+}
+
+.shopDesc {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 90%;
+    text-align: left;
+}
+
+.code {
+    background-color: #783094;
+    color: white;
+    border-radius: 20px;
+    margin: 30px 40px 20px 0px;
+}
+
+code {
+    font-size: 14px;
+}
+
+.shopFilters {
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    flex: 0 0 25%;
+}
+
+.filters {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.37rem;
+}
